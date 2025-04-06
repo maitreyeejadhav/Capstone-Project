@@ -41,12 +41,22 @@ def preprocess_text(text):
 
 # Retrain SVM model
 def retrain_svm_model(new_data_file):
-    data = pd.read_csv(new_data_file)
+    fake_data_file = '../data/fake.csv'   # fakes news data could be saved manually fo now 
     
-    # Assuming dataset has 'text' and 'label' columns
-    data['text'] = data['text'].apply(preprocess_text)
-    X = data['text']
-    y = data['label']
+    true_data = pd.read_csv(new_data_file)   # this new file comes from the web scrapper, this only contains real news from news website 
+    fake_data = pd.read_csv(fake_data_file)
+    
+    all_data=pd.concat([fake_data, true_data])     # combining fake and real news dataset 
+    random_permutation = np.random.permutation(len(all_data))  #shuffles the rows for mixing sammples
+    all_data= all_data.iloc[random_permutation]
+
+    # Assuming dataset has 'title', 'description' and 'label' columns
+    # label for fake nwes = 1
+    # label for real news = 0
+    all_data['text']=all_data['title']+' '+all_data['description']
+    all_data['text'] = all_data['text'].apply(preprocess_text)
+    X = all_data['text']
+    y = all_data['label']
     
     vectorizer = TfidfVectorizer()
     X_transformed = vectorizer.fit_transform(X)
