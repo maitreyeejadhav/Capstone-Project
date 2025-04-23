@@ -1,0 +1,27 @@
+Real news articles=  51 news articles
+Fake news articles = 63 news articles
+
+
+for 80-20 train-test split:
+Model retrained with accuracy: 0.7826
+Precision: 0.7647
+Recall: 0.9286
+F1-score: 0.8387
+
+for 70- 30 train-test split:
+Model retrained with accuracy: 0.7143
+Precision: 0.6786
+Recall: 0.9500
+F1-score: 0.7917
+
+for 60-40 train-test split:
+Model retrained with accuracy: 0.6739
+Precision: 0.6486
+Recall: 0.9231
+F1-score: 0.7619
+
+for 50-50 train-test split:
+Model retrained with accuracy: 0.7193
+Precision: 0.6818
+Recall: 0.9375
+F1-score: 0.7895
