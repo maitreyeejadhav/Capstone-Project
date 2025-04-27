@@ -11,6 +11,9 @@ from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import random
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+
 
 
 # Set random seeds for reproducibility
@@ -26,8 +29,8 @@ def preprocess_text(text):
     return ' '.join(text)
 
 # Load the datasets
-fake_data_file = 'fake_news_sample.csv'
-new_data_file = 'real_result.csv'
+fake_data_file = 'fake_news_sample_2.csv'
+new_data_file = 'real_result_2.csv'
 
 true_data = pd.read_csv(new_data_file)   # real news from web scraping
 fake_data = pd.read_csv(fake_data_file)  # manually labeled fake news
@@ -47,15 +50,28 @@ X = all_data['text']
 y = all_data['label']
 
 # Vectorize text
-vectorizer = TfidfVectorizer()
+vectorizer = TfidfVectorizer(ngram_range=(1,2), max_df=0.9, min_df=2)
+
+
+# vectorizer = TfidfVectorizer()   ## original code
 X_transformed = vectorizer.fit_transform(X)
 
 # Split data with a fixed random state
 X_train, X_test, y_train, y_test = train_test_split(X_transformed, y, test_size=0.5, random_state=42)
 
-# Train model
-model = SVC(kernel='linear')
+# Train SVM model
+model = SVC(kernel='linear', C=10, class_weight='balanced')
+# model = SVC(kernel='linear')  ## original code
 model.fit(X_train, y_train)
+
+# # # Train LR model
+# model = LogisticRegression()
+# model.fit(X_train, y_train)
+
+# # # Train NB model
+# model = MultinomialNB()
+# model.fit(X_train, y_train)
+
 
 # Predict and evaluate
 y_pred = model.predict(X_test)

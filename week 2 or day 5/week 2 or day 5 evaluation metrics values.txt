@@ -1,0 +1,28 @@
+week 2 or day 5 maybe final(till 27 April) not sure though if following are correct 
+
+for 80-20 train-test split:
+Model retrained with accuracy: 0.6700
+Precision: 0.7500
+Recall: 0.5660
+F1-score: 0.6452
+
+
+for 70-30 train-test split:
+Model retrained with accuracy: 0.6711
+Precision: 0.7183
+Recall: 0.6375
+F1-score: 0.6755
+
+
+for 60-40 train-test split:
+Model retrained with accuracy: 0.6131
+Precision: 0.6304
+Recall: 0.5743
+F1-score: 0.6010
+
+
+for 50-50 train-test split:
+Model retrained with accuracy: 0.6371
+Precision: 0.6230
+Recall: 0.6333
+F1-score: 0.6281
