@@ -1,0 +1,30 @@
+week 3 or date: 4 May 2025 
+
+for 80-20 train-test split:
+Model retrained with accuracy: 0.7913
+Precision: 0.7895
+Recall: 0.7895
+F1-score: 0.7895
+
+
+for 70-30 train-test split:
+Model retrained with accuracy: 0.7238
+Precision: 0.7176
+Recall: 0.7219
+F1-score: 0.7198
+
+
+
+for 60-40 train-test split:
+Model retrained with accuracy: 0.7211
+Precision: 0.7124
+Recall: 0.7188
+F1-score: 0.7156
+
+
+
+for 50-50 train-test split:
+Model retrained with accuracy: 0.7277
+Precision: 0.7168
+Recall: 0.7220
+F1-score: 0.7194
