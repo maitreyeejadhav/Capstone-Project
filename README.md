@@ -1,7 +1,7 @@
 # Capstone-Project
-We are using svm_dataset_2 (1).ipynb as final model as it has better accuracy.
-
 This project is the Final Year BTech Project.
+
+We are using svm_dataset_2 (1).ipynb as final model as it has better accuracy.
 
 Key highlights of this project:
 - We compared the performance of three machine learning classifiers: Support Vector Machine, Logistic Regression and Naive Bayes on a dataset. The model with the best accuracy was chosen to predict if a news was fake or real.
